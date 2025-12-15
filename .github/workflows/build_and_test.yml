@@ -88,7 +88,7 @@ jobs:
       - name: Cache IPP (Windows)
         if: runner.os == 'Windows' && !matrix.self-hosted-runner
         id: cache-ipp
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           key: ipp-v6
           path: C:\Program Files (x86)\Intel
@@ -102,7 +102,7 @@ jobs:
 
       - name: Save IPP cache (even on CI fail)
         if: runner.os == 'Windows' && (steps.cache-ipp.outputs.cache-hit != 'true') && !matrix.self-hosted-runner
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: C:\Program Files (x86)\Intel
           key: ipp-v6
